@@ -2,6 +2,8 @@ CREATE DATABASE assignment;
 USE assignment;
 
 -- Answer 1 
+
+-- Creating the given employees table
 CREATE TABLE employees(
 	EmpID INT PRIMARY KEY,
     Name VARCHAR(20) NOT NULL,
@@ -16,6 +18,7 @@ INSERT INTO employees VALUES(4,'W', 'Female', 'IT');
 
 SELECT * FROM employees;
 
+-- Query to get number of male and female employees in each department
 SELECT Department, 
 SUM(CASE
 		WHEN Gender='Male' THEN 1 
@@ -31,6 +34,8 @@ ORDER BY Department;
 
 
 -- Answer 2
+
+-- Creating the given salaries table
 CREATE TABLE salaries(
 	Name VARCHAR(20),
     Jan INT,
@@ -45,6 +50,7 @@ INSERT INTO salaries VALUES('W', 3244, 4321, 0293);
 
 SELECT * FROM salaries;
 
+-- Query to get max salary value and month name
 SELECT Name, 
 (SELECT MAX(maxSal) maxSal FROM 
 	(SELECT salaries.Jan AS maxSal 
@@ -64,7 +70,10 @@ SELECT Name,
 ) as Month
 FROM salaries;
 
+
 -- Answer 3
+
+-- Creating the given marks table
 CREATE TABLE marks(
 	Candidate_ID INT PRIMARY KEY,
     Marks int
@@ -76,10 +85,12 @@ INSERT INTO marks VALUES(3, 87);
 INSERT INTO marks VALUES(4, 98);
 INSERT INTO marks VALUES(5, 78);
 
-SET @a=0;
+-- Query for the desired result
+-- Setting rank_num variable that keeps track of current rank
+SET @rank_num=0;
 SELECT 
 	Marks, 
-	@a := @a+1 as 'Rank', 
+	@rank_num := @rank_num+1 as 'Rank', 
 	GROUP_CONCAT(Candidate_ID) as Candidate_ID 
 FROM marks 
 GROUP BY Marks 
@@ -87,6 +98,8 @@ ORDER BY Marks DESC;
 
 
 -- Answer 4
+
+-- Creating the given emails table
 CREATE TABLE emails(
 	Candidate_id INT PRIMARY KEY,
     Email VARCHAR(30)
@@ -98,4 +111,5 @@ INSERT INTO emails VALUES(34, 'abc@gmail.com');
 INSERT INTO emails VALUES(21, 'bcf@gmail.com');
 INSERT INTO emails VALUES(94, 'def@gmail.com');
 
+--Query to get the desired result
 SELECT MIN(Candidate_id) as Candidate_id, Email FROM emails GROUP BY Email ORDER BY Candidate_id DESC;  
