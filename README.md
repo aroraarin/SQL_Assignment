@@ -64,7 +64,7 @@
    
    Query :
    
-   [![Screenshot-2023-02-13-at-11-58-26-AM.png](https://i.postimg.cc/QMx78DTV/Screenshot-2023-02-13-at-11-58-26-AM.png)](https://postimg.cc/PC9JyBKk)
+   [![Screenshot-2023-02-16-at-6-47-18-PM.png](https://i.postimg.cc/zf2cS1k0/Screenshot-2023-02-16-at-6-47-18-PM.png)](https://postimg.cc/XZFL4mmC)
    
    Output :
    
@@ -72,7 +72,7 @@
    
    Approach :
     
-   Used the `MIN` aggregate function to get the smalled candidate ID and `GROUP BY` clause to group the candidates on the basis of their emails.
+   Used the `MIN` aggregate function to get the smalled candidate ID and `GROUP BY` clause to group the candidates on the basis of their emails the used this query as a subquery to delete those records which do not match with the selected outputs from the subquery.
   
    
     
