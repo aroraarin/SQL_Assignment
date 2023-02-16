@@ -112,4 +112,13 @@ INSERT INTO emails VALUES(21, 'bcf@gmail.com');
 INSERT INTO emails VALUES(94, 'def@gmail.com');
 
 --Query to get the desired result
-SELECT MIN(Candidate_id) as Candidate_id, Email FROM emails GROUP BY Email ORDER BY Candidate_id DESC;  
+DELETE FROM emails 
+WHERE Candidate_id NOT IN (
+	SELECT c FROM (
+		SELECT MIN(Candidate_id) as c
+		FROM emails
+		GROUP BY Email 
+		) as a
+);
+
+SELECT * FROM emails ORDER BY Candidate_id DESC;
