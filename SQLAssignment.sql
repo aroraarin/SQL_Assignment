@@ -5,7 +5,7 @@ USE assignment;
 
 -- Creating the given employees table
 CREATE TABLE employees(
-	EmpID INT PRIMARY KEY,
+    EmpID INT PRIMARY KEY,
     Name VARCHAR(20) NOT NULL,
     Gender VARCHAR(20) NOT NULL,
     Department VARCHAR(20) NOT NULL
@@ -21,7 +21,7 @@ SELECT * FROM employees;
 -- Query to get number of male and female employees in each department
 SELECT Department, 
 SUM(CASE
-		WHEN Gender='Male' THEN 1 
+	WHEN Gender='Male' THEN 1 
         ELSE 0 END
 	) as 'Num of males',
 SUM(CASE
