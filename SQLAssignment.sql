@@ -25,7 +25,7 @@ SUM(CASE
         ELSE 0 END
 	) as 'Num of males',
 SUM(CASE
-		WHEN Gender='Female' THEN 1 
+	WHEN Gender='Female' THEN 1 
         ELSE 0 END
 	) as 'Num of females' 
 FROM employees 
@@ -37,7 +37,7 @@ ORDER BY Department;
 
 -- Creating the given salaries table
 CREATE TABLE salaries(
-	Name VARCHAR(20),
+    Name VARCHAR(20),
     Jan INT,
     Feb INT,
     Mar int
@@ -54,19 +54,19 @@ SELECT * FROM salaries;
 SELECT Name, 
 (SELECT MAX(maxSal) maxSal FROM 
 	(SELECT salaries.Jan AS maxSal 
-		UNION 
-        SELECT salaries.Feb 
-        UNION 
-        SELECT salaries.Mar
-	) AS a
+	 UNION 
+         SELECT salaries.Feb 
+         UNION 
+         SELECT salaries.Mar
+	 ) AS a
 ) as Value,
 (SELECT(
-		CASE 
-			WHEN Value=salaries.Jan THEN 'Jan' 
-			WHEN Value=salaries.Feb THEN 'Feb' 
-			WHEN Value=salaries.Mar THEN 'Mar' 
-			END
-		)
+	CASE 
+		WHEN Value=salaries.Jan THEN 'Jan' 
+		WHEN Value=salaries.Feb THEN 'Feb' 
+		WHEN Value=salaries.Mar THEN 'Mar' 
+		END
+	)
 ) as Month
 FROM salaries;
 
@@ -76,7 +76,7 @@ FROM salaries;
 -- Creating the given marks table
 CREATE TABLE marks(
 	Candidate_ID INT PRIMARY KEY,
-    Marks int
+    	Marks int
 );
 
 INSERT INTO marks VALUES(1, 98);
@@ -102,7 +102,7 @@ ORDER BY Marks DESC;
 -- Creating the given emails table
 CREATE TABLE emails(
 	Candidate_id INT PRIMARY KEY,
-    Email VARCHAR(30)
+  	Email VARCHAR(30)
 );
 
 INSERT INTO emails VALUES(45, 'abc@gmail.com');
